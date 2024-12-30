@@ -39,6 +39,7 @@ class UiHelper {
     return Text(
       text,
       style: TextStyle(
+          height: 1.3,
           fontSize: FontKaSize,
           fontFamily: FontKaFamily??"inter",
           color: TextKaColor ?? Color(0XFF5E5E5E),
