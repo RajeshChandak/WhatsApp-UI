@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/Profile/profilescreen.dart';
 import 'package:whatsapp_ui/Widgets/uihelper.dart';
 
 class otpScreen extends StatelessWidget {
@@ -23,7 +24,7 @@ class otpScreen extends StatelessWidget {
             UiHelper.CustomText(
                 text: "Verifying your number",
                 FontKaSize: 20,
-                FontKaFamily: "inter",
+                // FontKaFamily: "inter",
                 TextKaColor: Color(0XFF00A884)),
             SizedBox(
               height: 40,
@@ -78,7 +79,7 @@ class otpScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton:  UiHelper.CustomButtons(callback: (){
-
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => profileScreen()));
       }, buttonName: "Next"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
