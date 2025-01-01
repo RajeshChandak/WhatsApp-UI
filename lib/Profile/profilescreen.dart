@@ -31,7 +31,7 @@ class _profileScreenState extends State<profileScreen> {
               TextKaColor: Color(0XFF00A884),
             ),
             SizedBox(
-              height: 40,
+              height: 30,
             ),
             UiHelper.CustomText(
                 text: "Please provide your name and an optional",
@@ -40,27 +40,31 @@ class _profileScreenState extends State<profileScreen> {
             UiHelper.CustomText(
                 text: "profile photo", FontKaSize: 16, FontKaFamily: "regular"),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             GestureDetector(
               onTap: () {
                 _openBottomSheet(context);
               },
               child: pickedImage==null?CircleAvatar(
-                  radius: 81,
+                  radius: 57,
                   backgroundColor: Color(0XFFD9D9D9),
                   child: Icon(
                     Icons.camera_alt,
                     color: Colors.grey,
-                    size: 45,
+                    size: 30,
                   )):CircleAvatar(
-                  radius: 81,
+                  radius: 57,
                   // backgroundColor: Color(0XFFD9D9D9),
                   backgroundImage: FileImage(pickedImage!),
-                  child: Icon(
-                    Icons.camera_alt,
-                    color: Colors.grey,
-                    size: 45,
+                  child: Opacity(
+                    opacity: 0.5,
+                    child: Icon(
+                      Icons.camera_alt,
+                      color: Colors.grey,
+                      size: 30,
+                      fill: 0.9,
+                    ),
                   )),
             ),
             SizedBox(
@@ -96,7 +100,8 @@ class _profileScreenState extends State<profileScreen> {
                   fit: BoxFit.cover,
                 )
               ],
-            )
+            ),
+
           ],
         ),
       ),
@@ -112,37 +117,43 @@ class _profileScreenState extends State<profileScreen> {
         builder: (BuildContext context) {
           return Container(
             // width: double.infinity,
-            height: 200,
+            height: 150,
             color: Colors.grey,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconButton(
-                        onPressed: () {
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, top: 8),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+
+                      GestureDetector(
+                        onTap: (){
                           _pickImage(ImageSource.camera);
                         },
-                        icon: Icon(
-                          Icons.camera_alt,
-                          size: 90,
-                          color: Colors.white70,
-                        )),
-                    SizedBox(
-                      width: 60,
-                    ),
-                    IconButton(
-                        onPressed: () {
+                        child: Icon(
+                              Icons.camera_alt,
+                              size: 69,
+                              color: Colors.white70,
+                            )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: (){
                           _pickImage(ImageSource.gallery);
+
                         },
-                        icon: Icon(
-                          Icons.image,
-                          size: 90,
-                          color: Colors.white70,
-                        ))
-                  ],
-                ),
-              ],
+                        child:Icon(
+                              Icons.image,
+                              size: 69,
+                              color: Colors.white70,
+                            )),
+                    ],
+                  ),
+                ],
+              ),
             ),
           );
         });
@@ -168,3 +179,4 @@ class _profileScreenState extends State<profileScreen> {
     }
   }
 }
+
